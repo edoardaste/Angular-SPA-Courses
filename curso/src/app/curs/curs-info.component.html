@@ -1,0 +1,74 @@
+<h1>Course Info</h1>
+
+<br>
+
+<form #courseForm="ngForm" *ngIf="curs">
+
+    <div class="form-group row ">
+
+        <label class="col-sm-2 col-form-label">Name:</label>
+
+            <div class="col-sm-10">
+                <input [(ngModel)]="curs.name" type="text" required name="name" #courseName="ngModel" 
+                [ngClass]="{'is-invalid': courseName.invalid}" class="form-control">
+
+                <div class="invalid-feedback">
+                    <span> Course name is required</span>
+                 </div>
+
+            </div>
+
+    </div><br>
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Price:</label>
+
+            <div class="col-sm-10">
+                <input [(ngModel)]="curs.price" type="text" required name="price" #coursePrice="ngModel"
+                [ngClass]="{'is-invalid': coursePrice.invalid}" class="form-control">
+
+                <div class="invalid-feedback">
+                    <span> Price name is required</span>
+                 </div>
+
+            </div>
+           
+    </div><br>
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Code:</label>
+
+            <div class="col-sm-10">
+                <input [(ngModel)]="curs.code" type="text" required name="code" #courseCode="ngModel"
+                 [ngClass]="{'is-invalid': courseCode.invalid}" class="form-control">
+
+                 <div class="invalid-feedback">
+                    <span> Code name is required</span>
+                 </div>
+
+            </div>      
+    </div> <br>  
+
+    
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Duration:</label>
+
+            <div class="col-sm-10">
+                <textarea [(ngModel)]="curs.description" type="text" required name="description" #courseDescription="ngModel"
+                 [ngClass]="{'is-invalid': courseDescription.invalid}" class="form-control"></textarea>
+
+                 <div class="invalid-feedback">
+                    <span> Description is required</span>
+                 </div>
+
+            </div>
+           
+    </div> <br>  
+
+    <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary me-2">Save</button>
+    <button [routerLink]="['/curs']" class="btn btn-secondary mr-2">Back</button>
+
+</form>
